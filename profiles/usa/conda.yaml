@@ -1,0 +1,11 @@
+name: nextstrain
+channels:
+- conda-forge
+- bioconda
+- defaults
+dependencies:
+- augur=10.0.2
+- python=3.6*
+- pip
+- pip:
+  - awscli==1.18.45

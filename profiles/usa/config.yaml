@@ -1,0 +1,13 @@
+#####################################################################################
+#### NOTE: head over to `builds.yaml` to define what builds you'd like to run. ####
+#### (i.e., datasets and subsampling schemas)  ####
+#####################################################################################
+
+configfile:
+  - ../usa-sarscov2/profiles/usa/builds.yaml
+
+# Always print the commands that will be run to the screen for debugging.
+printshellcmds: True
+
+# Explain why Snakemake is running each rule.
+reason: True

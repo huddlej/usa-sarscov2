@@ -1,0 +1,30 @@
+# Define builds for each state and territory.
+builds:
+  washington:
+    subsampling_scheme: state-territory
+    division: Washington
+  puerto-rico:
+    subsampling_scheme: state-territory
+    division: Puerto Rico
+
+# Define subsampling scheme for state- and territory-level (hereafter
+# "division") builds. This scheme should include as much local diversity for a
+# given division as possible and contextual samples from the rest of the USA and
+# the world.
+subsampling:
+  state-territory:
+    local-focus:
+      # Evenly sample across time for the current division.
+      group_by: "year month"
+      max_sequences: 100
+      query: --query "(country == 'USA' & division == '{division}')"
+    usa-context:
+      # Evenly sample across time from each division other than the current division.
+      group_by: "division year month"
+      max_sequences: 50
+      query: --query "(country == 'USA' & division != '{division}')"
+    global-context:
+      # Evenly sample across time from the rest of the world excluding the USA.
+      group_by: "region year month"
+      max_sequences: 50
+      query: --query "(country != 'USA')"
