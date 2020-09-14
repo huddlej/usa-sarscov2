@@ -28,9 +28,6 @@ builds:
   delaware:
     subsampling_scheme: state-territory
     division: Delaware
-  district-of-columbia:
-    subsampling_scheme: state-territory
-    division: District of Columbia
   florida:
     subsampling_scheme: state-territory
     division: Florida
@@ -151,6 +148,9 @@ builds:
   washington:
     subsampling_scheme: state-territory
     division: Washington
+  washington-dc:
+    subsampling_scheme: state-territory
+    division: Washington DC
   west-virginia:
     subsampling_scheme: state-territory
     division: West Virginia
