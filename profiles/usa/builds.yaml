@@ -166,15 +166,21 @@ subsampling:
     local-focus:
       # Evenly sample across time for the current division.
       group_by: "year month"
-      max_sequences: 100
+      max_sequences: 300
       query: --query "(country == 'USA' & division == '{division}')"
     usa-context:
       # Evenly sample across time from each division other than the current division.
-      group_by: "division year month"
-      max_sequences: 50
+      group_by: "year month"
+      max_sequences: 100
       query: --query "(country == 'USA' & division != '{division}')"
+      priorities:
+        type: proximity
+        focus: local-focus
     global-context:
       # Evenly sample across time from the rest of the world excluding the USA.
       group_by: "region year month"
-      max_sequences: 50
+      max_sequences: 200
       query: --query "(country != 'USA')"
+      priorities:
+        type: proximity
+        focus: local-focus
