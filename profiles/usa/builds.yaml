@@ -1,3 +1,7 @@
+# Define custom auspice configuration to enable frequencies.
+files:
+  auspice_config: "../usa-sarscov2/profiles/usa/auspice_config.json"
+
 # Define builds for each state and territory.
 builds:
   alabama:
